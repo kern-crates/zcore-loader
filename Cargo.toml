@@ -14,11 +14,11 @@ description = "Linux and Zircon user programs loader and runner."
 log = "0.4"
 cfg-if = "1.0"
 xmas-elf = { version = "0.7", optional = true }
-kernel-hal = { git = "https://github.com/kern-crates/zcore-kernel-hal.git", rev = "9f880544", default-features = false }
-zircon-object = { git = "https://github.com/kern-crates/zcore-zircon-object.git", rev = "b2d6cd0d", features = ["elf"] }
-linux-object = { git = "https://github.com/kern-crates/zcore-linux-object.git", rev = "9519c6dc", optional = true }
-zircon-syscall = { git = "https://github.com/kern-crates/zcore-zircon-syscall.git", rev = "2b27cc29", optional = true }
-linux-syscall = { git = "https://github.com/kern-crates/zcore-linux-syscall.git", rev = "f1bb4d5f", optional = true }
+kernel-hal = { git = "https://github.com/kern-crates/zcore-kernel-hal.git", rev = "b3f6cff7", default-features = false }
+zircon-object = { git = "https://github.com/kern-crates/zcore-zircon-object.git", rev = "d8e23805", features = ["elf"] }
+linux-object = { git = "https://github.com/kern-crates/zcore-linux-object.git", rev = "6f8dbd89", optional = true }
+zircon-syscall = { git = "https://github.com/kern-crates/zcore-zircon-syscall.git", rev = "131932aa", optional = true }
+linux-syscall = { git = "https://github.com/kern-crates/zcore-linux-syscall.git", rev = "7f86d96c", optional = true }
 executor = { git = "https://github.com/DeathWish5/PreemptiveScheduler", rev = "e8cd353" }
 
 [features]
