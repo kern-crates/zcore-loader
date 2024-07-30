@@ -32,6 +32,7 @@ const K_COUNTERS: usize = 10;
 const K_FISTINSTRUMENTATIONDATA: usize = 11;
 const K_HANDLECOUNT: usize = 15;
 
+/*
 macro_rules! boot_library {
     ($name: expr) => {{
         cfg_if::cfg_if! {
@@ -55,6 +56,7 @@ macro_rules! boot_library {
         }
     }};
 }
+*/
 
 fn kcounter_vmos() -> (Arc<VmObject>, Arc<VmObject>) {
     let (desc_vmo, arena_vmo) = if cfg!(feature = "libos") {
@@ -90,10 +92,7 @@ fn kcounter_vmos() -> (Arc<VmObject>, Arc<VmObject>) {
 }
 
 /// Run Zircon `userboot` process from the prebuilt path, and load the ZBI file as the bootfs.
-pub fn run_userboot(zbi: impl AsRef<[u8]>, cmdline: &str) -> Arc<Process> {
-    let userboot = boot_library!("userboot");
-    let vdso = boot_library!("libzircon");
-
+pub fn run_userboot(zbi: impl AsRef<[u8]>, userboot: &[u8], vdso: &[u8], cmdline: &str) -> Arc<Process> {
     let job = Job::root();
     let proc = Process::create(&job, "userboot").unwrap();
     let thread = Thread::create(&proc, "userboot").unwrap();
